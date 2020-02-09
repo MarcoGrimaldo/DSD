@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Coordenada::Coordenada(double xx, double yy) : x(xx), y(yy) 
+Coordenada::Coordenada(double xx, double yy, double zz) : x(xx), y(yy),z(zz)
 { }
 
 double Coordenada::obtenerX()
@@ -12,4 +12,8 @@ double Coordenada::obtenerX()
 double Coordenada::obtenerY()
 {
      return y;
+}
+double Coordenada::obtenerZ()
+{
+     return z;
 }
