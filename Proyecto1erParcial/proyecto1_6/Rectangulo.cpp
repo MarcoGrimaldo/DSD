@@ -3,15 +3,15 @@
 #include <iostream>
 using namespace std;
 
-Rectangulo::Rectangulo(Coordenada superiorIzq1, Coordenada inferiorDer1) : superiorIzq(0,0), inferiorDer(0,0)
+Rectangulo::Rectangulo()
+{}
+ 
+void Rectangulo::inicializarRec(Coordenada superiorIzq1, Coordenada inferiorDer1)
 {
     superiorIzq = superiorIzq1;
     inferiorDer = inferiorDer1;
 }
- 
-Rectangulo::Rectangulo(double xSupIzq, double ySupIzq, double xInfDer, double yInfDer):superiorIzq(xSupIzq, ySupIzq), inferiorDer(xInfDer, yInfDer)
-{ }
- 
+
 void Rectangulo::imprimeEsq()
 {
     cout << "Para la esquina superior izquierda.\n";
@@ -36,5 +36,11 @@ double Rectangulo::obtieneArea()
 
     alto = superiorIzq.obtenerY() - inferiorDer.obtenerY();
     ancho = inferiorDer.obtenerX() - superiorIzq.obtenerX();
+
+    if(alto == 0)
+        alto = superiorIzq.obtenerZ() - inferiorDer.obtenerZ();
+    if(ancho == 0)
+        ancho = superiorIzq.obtenerZ() - inferiorDer.obtenerZ();
+
     return ancho*alto;
 }

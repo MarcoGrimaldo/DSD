@@ -8,8 +8,8 @@ class Rectangulo
         Coordenada superiorIzq;
         Coordenada inferiorDer; 
     public:
-        Rectangulo(Coordenada superiorIzq, Coordenada inferiorDer);
-        Rectangulo(double xSupIzq, double ySupIzq, double xInfDer, double yInfDer);
+        Rectangulo();
+        void inicializarRec(Coordenada superiorIzq, Coordenada inferiorDer);
         void imprimeEsq();
         Coordenada obtieneSupIzq();
         Coordenada obtieneInfDer();
