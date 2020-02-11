@@ -7,7 +7,8 @@ int Fecha::vecesMuestF = 0;
 
 int Fecha::getVecesMuestF()
 {
-    return vecesMuestF; 
+    return vecesMuestF;
+    //cout << dia << " " << mes << " " << anio << endl; 
 }
 
 Fecha::Fecha(int dd, int mm, int aaaa)
