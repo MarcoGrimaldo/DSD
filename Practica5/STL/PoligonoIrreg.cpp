@@ -14,6 +14,11 @@ int PoligonoIrreg::getVecesMuestF()
 PoligonoIrreg::PoligonoIrreg()
 { }
 
+void PoligonoIrreg::reserveVer(int x)
+{
+    vertices.reserve(x);
+}
+
 void PoligonoIrreg::anadeVertices(Coordenada v)
 {
     vertices.push_back(v);
