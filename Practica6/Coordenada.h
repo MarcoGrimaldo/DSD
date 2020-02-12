@@ -10,6 +10,7 @@ class Coordenada
         Coordenada(double = 0, double = 0);
         double obtenerX();
         double obtenerY(); 
+        double obtenerMagnitud();
 };
 
 #endif

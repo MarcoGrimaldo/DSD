@@ -1,6 +1,7 @@
 #include "PoligonoIrreg.h"
 #include "Coordenada.h"
 #include <iostream>
+#include <algorithm>
 #include <math.h>
 #include <vector>
 using namespace std;
@@ -36,7 +37,7 @@ void PoligonoIrreg::imprimeVertices()
     {
         Coordenada co_a = *i;
         cout << "Vertice " << j+1 << " : " << co_a.obtenerX() << " , " << co_a.obtenerY() << endl;
-        double mag = sqrt( pow(co_a.obtenerX(),2.0) + pow(co_a.obtenerY(),2.0));
+        double mag = co_a.obtenerMagnitud();
         cout << "Magnitud: " << mag << endl;
     }
 }
@@ -44,6 +45,20 @@ void PoligonoIrreg::imprimeVertices()
 vector<Coordenada> PoligonoIrreg::getVertices()
 {
     return vertices;
+}
+
+//bool myfunction (Coordenada &i,Coordenada &j) { return (i.obtenerMagnitud() < j.obtenerMagnitud()); }
+
+/*struct myclass {
+  bool operator() (Coordenada i,Coordenada j) { return (i.obtenerMagnitud() < j.obtenerMagnitud());}
+} myobject;*/
+
+void PoligonoIrreg::ordenaA()
+{
+    //std::sort(vertices.begin(), vertices.begin(),myfunction);  
+    sort(vertices.begin(), vertices.end(), [](Coordenada &i, Coordenada &j) {
+        return i.obtenerMagnitud() < j.obtenerMagnitud();
+    });
 }
 
 PoligonoIrreg::~PoligonoIrreg()

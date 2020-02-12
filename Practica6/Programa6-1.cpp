@@ -18,7 +18,7 @@ int main()
     int n; //Vertices
     srand( unsigned(time(NULL) ));
 
-    n = 50;
+    n = 5;
 
     PoligonoIrreg poligono_m(n);
 
@@ -28,7 +28,9 @@ int main()
     }
 
     poligono_m.imprimeVertices();
-            
+    poligono_m.ordenaA();
+    cout << "\n ### Ordenados: \n";
+    poligono_m.imprimeVertices();
 
     return 0;
 }

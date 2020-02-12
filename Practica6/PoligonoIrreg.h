@@ -15,6 +15,7 @@ class PoligonoIrreg
         void anadeVertices(Coordenada v);
         void imprimeVertices();
         vector<Coordenada> getVertices();
+        void ordenaA();
         void reserveVer(int x);
         ~PoligonoIrreg();
 };
