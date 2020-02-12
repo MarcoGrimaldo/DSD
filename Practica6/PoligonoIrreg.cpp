@@ -1,6 +1,7 @@
 #include "PoligonoIrreg.h"
 #include "Coordenada.h"
 #include <iostream>
+#include <math.h>
 #include <vector>
 using namespace std;
 
@@ -11,8 +12,10 @@ int PoligonoIrreg::getVecesMuestF()
     return vecesMuestF;
 }
 
-PoligonoIrreg::PoligonoIrreg()
-{ }
+PoligonoIrreg::PoligonoIrreg(int n)
+{
+    vertices.reserve(n);
+}
 
 void PoligonoIrreg::reserveVer(int x)
 {
@@ -27,11 +30,15 @@ void PoligonoIrreg::anadeVertices(Coordenada v)
 
 void PoligonoIrreg::imprimeVertices()
 {
-    for (int i = 0; i < vertices.size() ; i++)
+    std::vector<Coordenada>::iterator i;
+    int j=0;
+    for ( i = vertices.begin(); i != vertices.end(); i++,j++)
     {
-        cout << "Vertice " << i+1 << " : " << vertices[i].obtenerX() << " , " << vertices[i].obtenerY() << endl;
+        Coordenada co_a = *i;
+        cout << "Vertice " << j+1 << " : " << co_a.obtenerX() << " , " << co_a.obtenerY() << endl;
+        double mag = sqrt( pow(co_a.obtenerX(),2.0) + pow(co_a.obtenerY(),2.0));
+        cout << "Magnitud: " << mag << endl;
     }
-    
 }
 
 vector<Coordenada> PoligonoIrreg::getVertices()

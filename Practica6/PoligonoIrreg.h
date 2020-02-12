@@ -11,7 +11,7 @@ class PoligonoIrreg
         static int vecesMuestF;
     public:
         static int getVecesMuestF();
-        PoligonoIrreg();
+        PoligonoIrreg(int n);
         void anadeVertices(Coordenada v);
         void imprimeVertices();
         vector<Coordenada> getVertices();
