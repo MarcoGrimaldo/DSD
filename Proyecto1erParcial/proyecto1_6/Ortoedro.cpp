@@ -7,7 +7,7 @@ using namespace std;
 Ortoedro::Ortoedro(Coordenada A,Coordenada D)
 { 
     //Cara 1                 A     B
-    caras[0].inicializarRec(A,Coordenada(D.obtenerX(),D.obtenerY(),D.obtenerZ()));
+    caras[0].inicializarRec(A,Coordenada(D.obtenerX(),D.obtenerY(),A.obtenerZ()));
     //Cara 2                 C           D
     caras[1].inicializarRec(Coordenada(A.obtenerX(),D.obtenerY(),A.obtenerZ()),D);
     //Cara 3                 E                                                  F
