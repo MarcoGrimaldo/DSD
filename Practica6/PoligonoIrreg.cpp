@@ -36,9 +36,9 @@ void PoligonoIrreg::imprimeVertices()
     for ( i = vertices.begin(); i != vertices.end(); i++,j++)
     {
         Coordenada co_a = *i;
-        cout << "Vertice " << j+1 << " : " << co_a.obtenerX() << " , " << co_a.obtenerY() << endl;
+        cout << "Vertice " << j+1 << " : " << co_a.obtenerX() << " , " << co_a.obtenerY();
         double mag = co_a.obtenerMagnitud();
-        cout << "Magnitud: " << mag << endl;
+        cout << " Magnitud: " << mag << endl;
     }
 }
 
