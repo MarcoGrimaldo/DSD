@@ -1,0 +1,29 @@
+¿Cuántos puertos posibles pueden ser usados por los procesos locales de recepción de mensajes de un computador?.
+A. 2^16 Puertos posibles
+B. 2^32 Puertos posibles
+C. 2^64 puertos posibles 
+D. 2^128 puertos posibles
+
+Métodos que proporciona la clase DatagramSocket:
+A. Connect y Send.
+B. Send y Block.
+C. Recieve y Timeout.
+D. Connect y Block.
+
+¿Que tipo de comunicacion de procesos puede utilizar variantes bloqueantes y no bloqueantes en su operación "recibe"?
+A. Asíncrona
+B. Ambas
+C. Síncrona
+D. Ninguna
+
+¿Que tipo de comunicación de los procesos las operaciones "envía" y "recibe" son bloqueantes?
+A. Síncrona
+B. Ambas
+C. Ninguna
+D. Asíncrona
+
+¿Como se llama la clase que abstrae la comunicación entre procesos?
+A. Socket
+B. InputStream
+C. OutputStream
+D. Datagram

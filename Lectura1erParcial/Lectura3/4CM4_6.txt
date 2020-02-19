@@ -1,0 +1,30 @@
+Organización de administración global que se encarga de reservar el tráfico de multidifusión
+A. IANA
+B. PRTG
+C. NTP
+D. TTL
+
+Método usado en Java para configurar el TTL para un socket que permite que la multidifusión solo se propague en la red local
+A. setTimeToLive
+B. MultiTalk
+C. leaveGroup
+D. MultiLocal
+
+¿Que caracteristica de los mensajes multicast aumenta el rendimiento de un servicio?
+A. Mejor rendimiento a través de datos replicados
+B. Propagación de notificaciones de eventos.
+C. Tolerancia a fallos basada en servicios replicados
+D. Descubriendo servicios en redes espontáneas
+
+No existe garantía de que los mensajes dentro del grupo sean enviados a un destinatario en particular;
+esto es, algunos miembros que no estén en el grupo pueden recibir el mensaje en cuestión:
+A. Unreliable multicast (Multicast no confiable).
+B. Falla por omisión.
+C. Problema de multicast.
+D. Ninguna de las anteriores.
+
+Rango de IPs reservadas para direcciones multicast
+A. 224.0.0.0 - 239.255.255.255
+B. 10.244.0.0 - 10.244.255.255
+C. 192.0.0.0 - 192.255.255.255
+D. 192.168.0.0 - 192.168.255.255

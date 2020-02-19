@@ -1,0 +1,30 @@
+¿Qué caracteristica de un sistema distribuido hace referencia a que se pueden añadir nuevos servicios?
+A. Extensibilidad
+B. Heterogeneidad
+C. Tratamiento de fallos
+D. Escalabilidad
+
+¿Cuál es el principal factor que motiva la construccion de los sistemas distribuidos?
+A. Compartición de recursos
+B. Economizar recursos
+C. Distribuir trabajos
+D. Tratar fallos
+
+Tipo de transparencia que permite utilizar multiples ejemplares de cada recurso para aumentar la fiabilidad y prestaciones
+A. Transparencia de replicación 
+B. Transparencia de acceso
+C. Transparencia de movilidad 
+D. Transparencia de prestaciones
+
+Ayuda a resolver la heterogeneidad aportando un modelo computacional uniforme 
+para uso de programadores de servicios y de aplicaciones distribuidas.
+A. Middleware.
+B. Código móvil.
+C. Escalabilidad.
+D. Compartir recursos.
+
+¿Cuáles son 3 características de seguridad en un sistema distribuido?
+A. Confidencialidad, integridad y disponibilidad
+B. Integridad, aislamiento y autenticación
+C. Autenticación, cifrado y descifrado
+D. Confidencialidad, cifrado e integridad

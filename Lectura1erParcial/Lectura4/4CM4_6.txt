@@ -1,0 +1,29 @@
+¿Cuales son las 3 primitivas del protocolo de comunicación petición respuesta?
+A.hazOperacion, damePeticion, enviaRespuesta
+B.hazOperacion, RMI, enviaRespuesta
+C.operacionMensaje, dameMensaje, RPC
+D.hazOperacion, RMI, RPC
+
+Los contenidos de los campos de las cadenas de caracteres y los caracteres se escriben con el metodo:
+A. writeUTF
+B. ObjectOutputStream
+C. write
+D. ObjectInputStream
+
+Consiste en generar los valores primitivos desde la representación de datos externa:
+A. Desempaquetado (unmarshalling).
+B. Protocolo de intercambio de RPC.
+C. Empaquetado (marshalling).
+D. CDR.
+
+¿Por qué se utiliza streams TCP para implementar el protocolo petición - respuesta? 
+A. Evitar la implementación de protocolos multipaquete
+B. No necesitar de mensajes de tamaño ilimitado
+C. Porque es necesario tratar los mensajes de retransmisión
+D. Todas las anteriores
+
+¿Cuál es el método para eliminar un recurso del servidor en el protocolo HTTP? 
+A. DELETE
+B. OPTIONS
+C. TRACE
+D. HEAD
