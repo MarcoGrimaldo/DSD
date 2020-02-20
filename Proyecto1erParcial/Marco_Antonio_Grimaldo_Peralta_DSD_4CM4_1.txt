@@ -1,0 +1,104 @@
+*************************** Ejercicio 1 ***************************
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double n = 0;
+    float xn = 0;
+    int xv = 0;
+
+    cout << "Ingrese el numero al que dessea calcular la raiz cuadrada: \n>";
+    cin >> n;
+    cout << "Ingrese un valor aproximado de la raiz cuadrada:\n>";
+    cin >> xn;
+
+    while( ( static_cast<int>(xn) - xv) > 0.001 )
+    {
+        xv = xn;
+        xn = (1.0 / 2.0) * (xv + (n / xv) );
+    }
+
+    cout << "La raiz cuadrada de " << n << " es: ";
+    std::cout.precision(5);
+    std::cout << xn << endl;
+}
+
+*************************** Ejercicio 2 ***************************
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    int tiempo=0;
+    float altura=0;
+    float gravedad = 9.8;
+
+    cout << "Ingrese el tiempo en segundos que tardo en caer la pelota: \n> ";
+    cin >> tiempo;
+
+    altura = (gravedad * (pow(tiempo,2)) ) / 2.0;
+
+    cout << "La altura es: " << altura << " metros." << endl;
+}
+
+*************************** Ejercicio 3 ***************************
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    int numero;
+    int horas = 0;
+    int minutos = 0;
+    int segundos = 0;
+
+    cout << "Ingrese el valor entero en segundos: ";
+    cin >> numero;
+
+    if(numero >= 3600.0)
+    {
+        horas = numero  / 3600.0;
+        cout << horas << " horas, ";
+    }
+    if (numero >= 60.0)
+    {
+        minutos =  (numero / 60) - (horas * 60.0);
+        cout << minutos << " minutos, ";
+    }
+
+    segundos = numero - (minutos * 60) - (horas * 3600);
+    cout << segundos << " segundos.";
+    
+}
+
+*************************** Ejercicio 4 ***************************
+========================== Temperatura.h ==========================
+#ifndef TEMPERATURA_H_
+#define TEMPERATURA_H_
+
+class Temperatura
+{
+    private: 
+        int tmpKelvin;
+    public:
+        Temperatura();
+        void setTempKelvin(int tmp);
+        void setTempFahrenheit(int tmp);
+        void setTempCelsius(int tmp);
+        float getTempKelvin();
+        float getTempFahrenheit();
+        float getTempCelsius();
+};
+#endif
+
+*************************** Ejercicio 5 ***************************
+
+*************************** Ejercicio 6 ***************************
+
+*************************** Ejercicio 7 ***************************

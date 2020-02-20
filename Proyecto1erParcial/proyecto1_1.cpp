@@ -25,7 +25,7 @@ int main()
     cout << "Ingrese un valor aproximado de la raiz cuadrada:\n>";
     cin >> xn;
 
-    while( ( static_cast<int>(xn) - sv) > 0.001 )
+    while( ( static_cast<int>(xn) - xv) > 0.001 )
     {
         xv = xn;
         xn = (1.0 / 2.0) * (xv + (n / xv) );
