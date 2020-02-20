@@ -78,7 +78,7 @@ int main()
 }
 
 *************************** Ejercicio 4 ***************************
-========================== Temperatura.h ==========================
+-------------------------- Temperatura.h --------------------------
 #ifndef TEMPERATURA_H_
 #define TEMPERATURA_H_
 
@@ -97,7 +97,7 @@ class Temperatura
 };
 #endif
 
-========================= Temperatura.cpp =========================
+------------------------- Temperatura.cpp -------------------------
 
 #include "Temperatura.h"
 #include <unistd.h>
@@ -139,7 +139,7 @@ float Temperatura::getTempCelsius()
     return (tmpKelvin - 273.0);
 }
 
-============================ Main.cpp =============================
+---------------------------- Main.cpp -----------------------------
 
 #include "Temperatura.h"
 #include <iostream>
@@ -179,7 +179,7 @@ int main()
 
 *************************** Ejercicio 5 ***************************
 
-=========================== Fraccion.h ============================
+--------------------------- Fraccion.h ----------------------------
 #ifndef FRACCION_H_
 #define FRACCION_H_
 
@@ -199,7 +199,7 @@ class Fraccion
 
 #endif
 
-========================== Fraccion.cpp ===========================
+-------------------------- Fraccion.cpp ---------------------------
 
 #include "Fraccion.h"
 #include <iostream>
@@ -269,7 +269,7 @@ Fraccion Fraccion::min_exp()
     }
 
 }
-============================ Main.cpp =============================
+---------------------------- Main.cpp -----------------------------
 
 #include "Fraccion.h"
 #include <iostream>
@@ -299,7 +299,7 @@ int main()
 
 *************************** Ejercicio 6 ***************************
 
-=========================== Coordenada.h ==========================
+--------------------------- Coordenada.h --------------------------
 
 #ifndef COORDENADA_H_
 #define COORDENADA_H_
@@ -319,7 +319,7 @@ class Coordenada
 
 #endif
 
-========================== Coordenada.cpp =========================
+-------------------------- Coordenada.cpp -------------------------
 
 #include "Coordenada.h"
 #include <iostream>
@@ -341,7 +341,7 @@ double Coordenada::obtenerZ()
      return z;
 }
 
-=========================== Rectangulo.h ==========================
+--------------------------- Rectangulo.h --------------------------
 
 #ifndef RECTANGULO_H_
 #define RECTANGULO_H_
@@ -363,7 +363,7 @@ class Rectangulo
 
 #endif
 
-========================== Rectangulo.cpp =========================
+-------------------------- Rectangulo.cpp --------------------------
 
 #include "Rectangulo.h"
 #include "Coordenada.h"
@@ -412,7 +412,7 @@ double Rectangulo::obtieneArea()
     return ancho*alto;
 }
 
-=========================== Ortoedro.h ============================
+--------------------------- Ortoedro.h ----------------------------
 
 #ifndef ORTOEDRO_H_
 #define ORTOEDRO_H_
@@ -433,7 +433,7 @@ class Ortoedro
 
 #endif
 
-========================== Ortoedro.cpp ===========================
+-------------------------- Ortoedro.cpp ---------------------------
 
 #include "Coordenada.h"
 #include "Rectangulo.h"
@@ -509,7 +509,7 @@ double Ortoedro::obtieneVolumen()
     return volumenT;
 }
 
-============================ Main.cpp =============================
+---------------------------- Main.cpp -----------------------------
 
 #include "Rectangulo.h"
 #include "Coordenada.h"
@@ -551,7 +551,7 @@ int main( )
 } 
 
 *************************** Ejercicio 7 ***************************
-============================ Numero.h =============================
+---------------------------- Numero.h -----------------------------
 
 #ifndef _NUMERO_H_
 #define _NUMERO_H_
@@ -571,7 +571,7 @@ class Numero
 
 #endif
 
-=========================== Numero.cpp ============================
+--------------------------- Numero.cpp ----------------------------
 
 #include "Numero.h"
 #include <iostream>
@@ -598,7 +598,7 @@ bool Numero::getBooleano()
     return esPrimo;
 }
 
-============================ Main.cpp =============================
+---------------------------- Main.cpp -----------------------------
 
 #include "Numero.h"
 #include <iostream>
