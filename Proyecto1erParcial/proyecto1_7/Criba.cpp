@@ -23,7 +23,7 @@ int main()
     for (int i = 2; i <= inNum ; i++)
     {
         Criba.push_back(Numero(i,true));
-        cout << Criba[i-2].getNumero() << endl;
+        //cout << Criba[i-2].getNumero() << endl;
     }
 
     vector<Numero>::iterator it = Criba.begin();
@@ -55,12 +55,11 @@ int main()
     {
         Numero aux(0,true);
         aux = *it3;
-        if (!aux.getBooleano())
+        if (aux.getBooleano())
         {
             cout << aux.getNumero() <<"\t ";
         }
-        
     }
     
-
+    cout << endl;
 }
