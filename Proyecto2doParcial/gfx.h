@@ -10,6 +10,10 @@ Version 3, 11/07/2012 - Now much faster at changing colors rapidly.
 Version 2, 9/23/2011 - Fixes a bug that could result in jerky animation.
 */
 
+#if defined(__cplusplus) 
+extern "C" {
+#endif
+
 #ifndef GFX_H
 #define GFX_H
 
@@ -48,4 +52,8 @@ int gfx_event_waiting();
 /* Flush all previous output to the window. */
 void gfx_flush();
 
+#endif
+
+#if defined(__cplusplus)  
+}
 #endif
