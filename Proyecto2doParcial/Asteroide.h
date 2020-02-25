@@ -8,10 +8,12 @@ using namespace std;
 class Asteroide
 {
     private:
-        vector<Coordenada> lados;
+        vector<Coordenada> vertices;
+        int numVertices;
     public:
-        void generaLados();
-        Asteroide();
+        void generaVertices(int n);
+        vector<Coordenada> getVertices();
+        Asteroide(int x);
         ~Asteroide();
 };
 
