@@ -48,12 +48,9 @@ int main(int argc, char *argv[])
 
 	for (int i = 0; i < 23; i++)
 	{
-		/* code */
 		cout << linea.at(i);
 	}
 	cout << endl;
-	
-	//cout << linea << endl;
 
 	int i = 1;
 	int j = 0;
@@ -62,14 +59,17 @@ int main(int argc, char *argv[])
 
 	while (i <= 7030400) 
     {
-		char token[3];
-		token[j] = candenota[i-1];
+		char buffer[BUFSIZ];
+		buffer[j] = candenota[i-1];
 
-		if(i % 4 == 0 )
+		if(i % BUFSIZ == 0 )
 		{			
-			write(destino,token,4);
+			write(destino,buffer,BUFSIZ);
 			j = 0;
 		}
+		if (i == 7030400)
+			write(destino,buffer,BUFSIZ);
+		
 		
 		else
 			j++;
@@ -78,4 +78,6 @@ int main(int argc, char *argv[])
 
 	fsync(destino);
 	close(destino);
+
+	cout << BUFSIZ << endl;
 }
