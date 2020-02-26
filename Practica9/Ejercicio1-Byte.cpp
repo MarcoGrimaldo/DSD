@@ -22,8 +22,6 @@ string randomString()
 	return palabra;
 }
 
-char buffer[BUFSIZ];
-
 int main(int argc, char *argv[])
 {
 	srand(time(NULL));
@@ -47,15 +45,16 @@ int main(int argc, char *argv[])
 		perror(argv[1]);
 		exit(-1);
 	}
-	int i = 0;
 
-	while (i < linea.length()) 
+	int i = 0;
+	char candenota[7030401];
+	strcpy(candenota,linea.c_str());
+
+	while (i < 7030400) 
     {
-		strncpy(buffer, linea.c_str() + i + 1, BUFSIZ);
-        //cout << i << endl;
-	 	write(destino, buffer, strlen(buffer));
-        i += BUFSIZ;
-        memset(buffer, 0, sizeof(buffer));
+		write(destino, candenota, sizeof(char));
+		memset(candenota, candenota[i], sizeof(char));
+		i++;
     }
 
 	fsync(destino);

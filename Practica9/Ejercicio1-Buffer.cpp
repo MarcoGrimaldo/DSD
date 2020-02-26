@@ -48,10 +48,12 @@ int main(int argc, char *argv[])
 
 	for (int i = 0; i < 23; i++)
 	{
+		/* code */
 		cout << linea.at(i);
 	}
 	cout << endl;
 	
+	//cout << linea << endl;
 
 	int i = 1;
 	int j = 0;
@@ -68,7 +70,7 @@ int main(int argc, char *argv[])
 			write(destino,token,4);
 			j = 0;
 		}
-
+		
 		else
 			j++;
 		i++;  
