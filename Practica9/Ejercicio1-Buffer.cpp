@@ -46,14 +46,9 @@ int main(int argc, char *argv[])
 		exit(-1);
 	}
 
-	for (int i = 0; i < 23; i++)
-	{
-		cout << linea.at(i);
-	}
-	cout << endl;
-
 	int i = 1;
 	int j = 0;
+	int cont = 0;
 	char candenota[7030401];
 	strcpy(candenota,linea.c_str());
 
@@ -66,10 +61,10 @@ int main(int argc, char *argv[])
 		{			
 			write(destino,buffer,BUFSIZ);
 			j = 0;
+			cont++;
 		}
 		if (i == 7030400)
-			write(destino,buffer,BUFSIZ);
-		
+			write(destino,buffer,7030400-(cont*BUFSIZ));
 		
 		else
 			j++;
