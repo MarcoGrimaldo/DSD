@@ -45,12 +45,6 @@ int main(int argc, char *argv[])
 		perror(argv[1]);
 		exit(-1);
 	}
-
-	for (int i = 0; i < 23; i++)
-	{
-		cout << linea.at(i);
-	}
-	cout << endl;
 	
 
 	int i = 1;

@@ -30,19 +30,35 @@ string randomString() {
 }
 
 void ramUse() {
-	cout << "RAM" << endl;
+	printf("Hilo %ld | Uso de RAM\n", this_thread::get_id());
+	//cout << "Uso de RAM" << endl;
     int *arreglo, i;
 	arreglo = new int[numeroElementos];
 	for(i = 0; i < numeroElementos; i++)
 		arreglo[i] = 0;
-	for(i = 0; i < 394000000; i++) {
+	
+	for(i = 0; i < 645000000; i++) {
+		arreglo[rand() % numeroElementos] = rand();
+	}
+}
+
+void ramUse2() {
+	printf("Hilo %ld | Uso de RAM 2\n", this_thread::get_id());
+	//cout << "Uso de RAM" << endl;
+    int *arreglo, i;
+	arreglo = new int[numeroElementos];
+	for(i = 0; i < numeroElementos; i++)
+		arreglo[i] = 0;
+	
+	for(i = 0; i < 645000000; i++) {
 		arreglo[rand() % numeroElementos] = rand();
 	}
 }
 
 void cpuUse() {
-	cout << "CPU" << endl;
-    double m = 155000000.0;
+	printf("Hilo %ld | Uso de CPU\n", this_thread::get_id());
+	//cout << "Uso de CPU" << endl;
+    double m = 121000000.0;
     double i = 0.0;
 	double seno1 = 0.0;
 	double cos1 = 0.0;
@@ -60,33 +76,32 @@ void cpuUse() {
 }
 
 void hardDriveUse() {
-	cout << "DD 1" << endl;
-	int n = 97576;
+	printf("Hilo %ld | Uso de DD 1\n", this_thread::get_id());
+	int n = 1757600;
+
 	int destino;
 	string linea = "";
-	char* archivo1 = (char*)calloc(5, sizeof(char));
-	strcpy(archivo1, "1.txt");
+	char archivo[8] = {'D','D','1','.','t','x','t'};
 	
     for (int i = 0; i < n; i++)
     	linea.insert(4 * i, randomString());
 
-	strcpy(buffer, linea.c_str());
-
-	//Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
-	if((destino = open(archivo1, O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1){
-		cout << "error " << archivo1 << endl;
-		perror(archivo1);
+	
+	if((destino = open(archivo, O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1)
+    {
+		perror(archivo);
 		exit(-1);
 	}
-	int i = 0;
 
-	while (i < strlen(buffer)) {
-        if (write (destino, buffer + i, 1) != 1) {
-        	cout << "Error al escribir byte por byte" << endl;
-            close (destino);
-            exit(0);
-        }
-        i++;
+	int i = 0;
+	char candenota[7030401];
+	strcpy(candenota,linea.c_str());
+
+	while (i < 7030400) 
+    {
+		write(destino, candenota, sizeof(char));
+		memset(candenota, candenota[i], sizeof(char));
+		i++;
     }
 
 	fsync(destino);
@@ -94,33 +109,33 @@ void hardDriveUse() {
 }
 
 void hardDriveUse2() {
-	cout << "DD 2" << endl;
-	int n = 97576;
+	printf("Hilo %ld | Uso de DD 2\n", this_thread::get_id());
+	int n = 1757600;
+
 	int destino;
 	string linea = "";
-	char* archivo2 = (char*)calloc(5, sizeof(char));
-	strcpy(archivo2, "2.txt");
 
+	char archivo[8] = {'D','D','2','.','t','x','t'};
+	
     for (int i = 0; i < n; i++)
     	linea.insert(4 * i, randomString());
 
-	strcpy(buffer, linea.c_str());
-
-	//Abre un archivo para escritura, si no existe lo crea, si existe lo trunca, con permisos rw-
-	if((destino = open(archivo2, O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1){
-		cout << "error " << archivo2 << endl;
-		perror(archivo2);
+	
+	if((destino = open(archivo, O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1)
+    {
+		perror(archivo);
 		exit(-1);
 	}
-	int i = 0;
 
-	while (i < strlen(buffer)) {
-        if (write (destino, buffer + i, 1) != 1) {
-        	cout << "Error al escribir byte por byte" << endl;
-            close (destino);
-            exit(0);
-        }
-        i++;
+	int i = 0;
+	char candenota[7030401];
+	strcpy(candenota,linea.c_str());
+
+	while (i < 7030400) 
+    {
+		write(destino, candenota, sizeof(char));
+		memset(candenota, candenota[i], sizeof(char));
+		i++;
     }
 
 	fsync(destino);
@@ -136,12 +151,12 @@ int main(int argc, char *argv[]) {
 	}
 
 	int opcion = atoi(argv[1]);
-	cout << "Punto " << opcion << "...." << endl;
+	cout << "Inciso " << opcion << ")"<< endl;
 
 	switch(opcion) {
 		case 1: 
 		{
-			//DD con distintos archivos
+			//DD 1 y 2
 			thread th1(hardDriveUse), th2(hardDriveUse2);
 			th1.join();
 		    th2.join();
@@ -150,7 +165,7 @@ int main(int argc, char *argv[]) {
 		case 2: 
 		{
 			//RAM y RAM
-			thread th3(ramUse), th4(ramUse);
+			thread th3(ramUse), th4(ramUse2);
 			th3.join();
 		    th4.join();
 		}
