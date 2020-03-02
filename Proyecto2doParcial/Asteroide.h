@@ -9,10 +9,14 @@ class Asteroide
 {
     private:
         vector<Coordenada> vertices;
-        int numVertices;
+        Coordenada centro;
+        double radio;
+        double numVertices;
     public:
-        void generaVertices(int n);
+        void generaVertices();
+        double getNumVertices();
         vector<Coordenada> getVertices();
+        void generaCentroRadio();
         Asteroide(int x);
         ~Asteroide();
 };
