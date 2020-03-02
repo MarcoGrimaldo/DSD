@@ -11,7 +11,7 @@ int main() {
 	for(i = 0; i < numeroElementos; i++)
 		arreglo[i] = 0;
 
-	for(i = 0; i < 394000000; i++){
+	for(i = 0; i < 645000000; i++){
 		arreglo[rand() % numeroElementos] = rand();
 	}
 }

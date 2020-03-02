@@ -74,5 +74,4 @@ int main(int argc, char *argv[])
 	fsync(destino);
 	close(destino);
 
-	cout << BUFSIZ << endl;
 }

@@ -22,7 +22,7 @@ void calculosNumericos(double m) {
 }
 
 int main() {
-	double max = 155000000.0;
+	double max = 121000000.0;
 	calculosNumericos(max);
 	return 0;
 }
