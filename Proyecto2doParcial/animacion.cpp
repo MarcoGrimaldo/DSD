@@ -5,13 +5,11 @@
 #include <time.h>  
 #include <stdlib.h>  
 #include <iostream> 
-#include <thread>
+
 using namespace std;
 
 void dibujaAsteroides(Asteroide as)
 {
-    as.generaVertices(); // ########### OJO
-
     vector<Coordenada> ver = as.getVertices();
 
     //  Unimos los vertices
@@ -34,6 +32,8 @@ int main()
     int num;
     char c;
 
+    int numAsteroides = 100;
+
     vector<Asteroide> Asteroides;
 
     srand (time(NULL));
@@ -42,12 +42,30 @@ int main()
     
     gfx_clear();
 
-    for (int i = 0; i < 80; i++)
+    //  Generamos los asteroides
+    for (int i = 0; i < numAsteroides; i++)
     {
+        //  Numero random de lados
         num = rand() % 15 + 10;
         Asteroides.push_back(Asteroide(num));
-        dibujaAsteroides(Asteroides.at(i));
+        Asteroides.at(i).generaVertices();
     }
+
+    //  Mover y rotar
+    for (int i = 0; i < 1000; i++)
+    {
+        gfx_clear();
+        //  Cada Asteroide se modifica en este ciclo
+        for (int i = 0; i < numAsteroides; i++)
+        {
+            Asteroides.at(i).giraAsteroide();
+            Asteroides.at(i).mueveAsteroide();
+            dibujaAsteroides(Asteroides.at(i));
+        }
+        gfx_flush();
+        usleep(41666);
+    }
+    
     
     while(1) {
 		// Wait for the user to press a character.

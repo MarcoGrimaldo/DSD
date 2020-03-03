@@ -12,12 +12,18 @@ class Asteroide
         Coordenada centro;
         double radio;
         double numVertices;
+        int anguloDireccion;
+        double alpha,beta,j;
     public:
+        Asteroide(int x);
         void generaVertices();
         double getNumVertices();
         vector<Coordenada> getVertices();
-        void generaCentroRadio();
-        Asteroide(int x);
+        void inicializaAsteoriode();
+        void setVertices(Coordenada newC,int at);
+        Coordenada getCoordenadaVertice(int at);
+        void mueveAsteroide();
+        void giraAsteroide();
         ~Asteroide();
 };
 
