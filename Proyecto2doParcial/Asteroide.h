@@ -24,6 +24,9 @@ class Asteroide
         Coordenada getCoordenadaVertice(int at);
         void mueveAsteroide();
         void giraAsteroide();
+        Coordenada getCentro();
+        void setAnguloDireccion(int nAngulo);
+        int getAnguloDireccion();
         ~Asteroide();
 };
 

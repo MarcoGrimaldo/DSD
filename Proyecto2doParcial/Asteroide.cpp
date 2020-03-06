@@ -17,8 +17,8 @@ Asteroide::Asteroide(int x) : numVertices(x)
 
 void Asteroide::inicializaAsteoriode()
 {
-    int x = rand() % 900 + 1;
-    int y = rand() % 700 + 1;
+    int x = rand() % 750 + 1;
+    int y = rand() % 550 + 1;
 
     //Creamos el centro aleatorio
     centro = Coordenada(x,y);
@@ -82,6 +82,21 @@ double Asteroide::getNumVertices()
     return numVertices;
 }
 
+Coordenada Asteroide::getCentro()
+{
+    return centro;
+}
+
+void Asteroide::setAnguloDireccion(int nAngulo)
+{
+    anguloDireccion = nAngulo; 
+}
+
+int Asteroide::getAnguloDireccion()
+{
+    return anguloDireccion;
+}
+
 vector<Coordenada> Asteroide::getVertices()
 {
     return vertices;
@@ -101,6 +116,9 @@ void Asteroide::mueveAsteroide()
 {
     double Xo = centro.obtenerX();
     double Yo = centro.obtenerY();
+
+    //cout << anguloDireccion << endl;
+
 
     for (int i = 0; i < vertices.size() ; i++)
     {

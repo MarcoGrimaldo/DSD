@@ -8,6 +8,26 @@
 
 using namespace std;
 
+//  Verifica si el asteroide esta en pantalla
+bool verificaAsteriodePantalla(Asteroide as)
+{
+    Coordenada centro = as.getCentro();
+    double x = centro.obtenerX();
+    double y = centro.obtenerY();
+
+    if(x < 0.0)
+        return false;
+    if(y < 0.0)
+        return false;
+    if (x > 800.0)
+        return false;
+    if (y > 600.0)
+        return false;
+    
+            
+    return true;
+}
+
 void dibujaAsteroides(Asteroide as)
 {
     vector<Coordenada> ver = as.getVertices();
@@ -58,6 +78,20 @@ int main()
         //  Cada Asteroide se modifica en este ciclo
         for (int i = 0; i < numAsteroides; i++)
         {
+            //  Si el centro del asteroide esta fuera de la pantalla
+            if ( ! verificaAsteriodePantalla(Asteroides.at(i)) )
+            {
+                int ang = Asteroides.at(i).getAnguloDireccion();
+                //  Suma 180 para que la direccion sea completamente la contraria
+                //  y un numero random de 0 a 40 para que no tenga la misma trayectoria
+                int nAng = ang + 180 + rand() % 40;
+                
+                //  El nuevo angulo de la suma anterior no debe pasar de 360
+                nAng = nAng % 360;
+                
+                Asteroides.at(i).setAnguloDireccion(nAng);
+            }
+            
             Asteroides.at(i).giraAsteroide();
             Asteroides.at(i).mueveAsteroide();
             dibujaAsteroides(Asteroides.at(i));
