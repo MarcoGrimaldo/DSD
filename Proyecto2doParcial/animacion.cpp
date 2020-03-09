@@ -84,7 +84,7 @@ int main()
                 int ang = Asteroides.at(i).getAnguloDireccion();
                 //  Suma 180 para que la direccion sea completamente la contraria
                 //  y un numero random de 0 a 40 para que no tenga la misma trayectoria
-                int nAng = ang + 180 + rand() % 40;
+                int nAng = ang + 180;
                 
                 //  El nuevo angulo de la suma anterior no debe pasar de 360
                 nAng = nAng % 360;
