@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
     memcpy(msgChar, msg.c_str(), strlen(msg.c_str())+1);
 
 
-    SocketDatagrama client = SocketDatagrama(0);
+    SocketDatagrama client = SocketDatagrama(6666);
     PaqueteDatagrama dat = PaqueteDatagrama(msgChar, strlen(msg.c_str()) , argv[1], 7200);
     if(client.envia(dat)){
         cout << "Mensaje enviado a:" << endl;
