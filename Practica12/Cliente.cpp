@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
         argumento1 = *argv[1];  
         argumento2 = *argv[2];     
         char mensaje[4000]={argumento1,argumento2}; 
-        char ip[10] = "127.0.0.1";
+        char ip[15] = "192.168.100.60";
         int puerto = 7200;
         int resultado, id = 1;
         memcpy(&resultado, cliente.doOperation(ip, puerto, id, mensaje), sizeof(resultado));
