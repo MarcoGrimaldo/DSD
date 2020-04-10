@@ -64,8 +64,12 @@ int main(int argc, char *argv[])
 			cont++;
 		}
 		if (i == 7030400)
+<<<<<<< HEAD
+			write(destino,buffer,BUFSIZ);
+=======
 			write(destino,buffer,7030400-(cont*BUFSIZ));
 		
+>>>>>>> ef7fac709df50feb56e47e5bfd4a7097efba1dee
 		else
 			j++;
 		i++;  
