@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package proyecto3;
-
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Polygon;
@@ -50,6 +43,17 @@ class DrawSine extends JPanel {
         return (n / 100.0) *  Math.PI/1.96;
     }
 
+    double fourierSerie(int n,double t)
+    {
+        double result = 0;
+        for(int i = 0; i <= n ; i++)
+        {
+            result = result + Math.sin(t * ((2*i) + 1) ) / ((2*i) + 1);
+        }
+        
+        return result;
+    }
+
     protected void paintComponent(Graphics g) 
     {
         super.paintComponent(g);
@@ -60,10 +64,14 @@ class DrawSine extends JPanel {
         Polygon p = new Polygon();
         
         //Coordenadas de prueba
-       for (int x = 0; x <= 800; x++) {
-            p.addPoint(x, 300 -(int) (300 * f( deToRad(x) )));
+       for (int x = 0; x <= 784; x++) {
+            double y = 300 *fourierSerie( 7, deToRad(x) );
+            p.addPoint(x, 300 - (int) ( 300 *fourierSerie( 100, deToRad(x) )));
+            System.out.println("> "+y);
         }
        
+        System.out.println("npoints"+p.npoints);
+
         g.setColor(Color.red);
         g.drawPolyline(p.xpoints, p.ypoints, p.npoints);
     }
