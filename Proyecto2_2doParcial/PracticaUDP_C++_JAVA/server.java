@@ -3,6 +3,10 @@ import java.io.*;
 import java.nio.ByteBuffer; //Para manejo de ByteBuffer
 import java.nio.ByteOrder;
 
+//Obtener los npoints de un poligono para reservar la memoria
+//Mandar las cordenadas y, puesto que las x son obvias.
+//graficar
+
 public class server {
 
   public static void main (String args[]) {
@@ -29,28 +33,6 @@ public class server {
         for(int i = 0; i< 5;i++)
             arrDouble[i] = buf.getDouble();
 
-        for(int i = 0; i< 5;i++)
-            System.out.println("Double en "+i+": "+arrDouble[i]);
-        
-
-        /*int entero1 = buf.getInt();
-        int entero2 = buf.getInt();
-        System.out.println("int MIN = " + entero1 + " int MAX = " + entero2);
-
-
-        /*int[] arrInt = new int[10];
-        int cont;
-        byte[] num = new byte [4];
-        for(int i = 0; i < data.length ; i++)
-        {
-            for(int j = 0; j < 5 ; j++)
-            {
-                 
-
-                cont++;
-            }
-        //}*/
-
 
         System.out.print("Datagrama recibido del host: " +
                            peticion.getAddress());
@@ -61,9 +43,6 @@ public class server {
         DatagramPacket respuesta =
           new DatagramPacket(peticion.getData(), peticion.getLength(),
                              peticion.getAddress(), peticion.getPort());
-
-        
-        //System.out.println("Datos: "+buf.getInt()+"\nTamanio: "+data.length);
 
         // Enviamos la respuesta, que es un eco
         socketUDP.send(respuesta);
