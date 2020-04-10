@@ -69,8 +69,6 @@ int main(int argc, char *argv[])
 		}
 		if (i == 7030400)
 			write(destino,buffer,BUFSIZ);
-		
-		
 		else
 			j++;
 		i++;  
