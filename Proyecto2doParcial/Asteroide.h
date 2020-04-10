@@ -9,11 +9,24 @@ class Asteroide
 {
     private:
         vector<Coordenada> vertices;
-        int numVertices;
+        Coordenada centro;
+        double radio;
+        double numVertices;
+        int anguloDireccion;
+        double alpha,beta,j;
     public:
-        void generaVertices(int n);
-        vector<Coordenada> getVertices();
         Asteroide(int x);
+        void generaVertices();
+        double getNumVertices();
+        vector<Coordenada> getVertices();
+        void inicializaAsteoriode();
+        void setVertices(Coordenada newC,int at);
+        Coordenada getCoordenadaVertice(int at);
+        void mueveAsteroide();
+        void giraAsteroide();
+        Coordenada getCentro();
+        void setAnguloDireccion(int nAngulo);
+        int getAnguloDireccion();
         ~Asteroide();
 };
 
