@@ -14,11 +14,13 @@
 #include <unistd.h>
 #include <thread>
 #include <mutex>
+#include "Semaforo.h"
 
 #define PORT     7200 
 #define MAXLINE 1024 
 
-std::mutex m;
+Semaforo sem1, sem2;
+char* IP_;
 
 double deToRad(int num)
 {
@@ -38,7 +40,15 @@ double fourierSerie(int n,double t)
   
 void creaYEnviaCordenadas(int n,double bandera)
 {
-    m.lock();
+    if (bandera == 0.0)
+    {
+        sem2.wait();
+    }
+    else
+    {
+        sem1.wait();
+    }
+    
     int sockfd;
     char buffer[MAXLINE]; 
     struct sockaddr_in     servaddr; 
@@ -65,7 +75,7 @@ void creaYEnviaCordenadas(int n,double bandera)
         // Filling server information 
         servaddr.sin_family = AF_INET; 
         servaddr.sin_port = htons(PORT); 
-        servaddr.sin_addr.s_addr = INADDR_ANY; 
+        servaddr.sin_addr.s_addr = inet_addr(IP_); //INADDR_ANY; 
         
         int len; 
 
@@ -74,35 +84,44 @@ void creaYEnviaCordenadas(int n,double bandera)
                 sizeof(servaddr)); 
         printf("Coodenadas enviadas.N = %i | BORRA = %lf\n",n,bandera);
 
-        //usleep(8000);
         //La espera cambia de a cuerdo si se va  dibujar o a borrar
         if (bandera == 0.0)
         {
-            usleep(10000);
+            usleep(1);
+            close(sockfd); 
+            sem1.post();
         }
         else
         {
-            usleep(8000);
+            usleep(750000);
+            close(sockfd); 
+            sem2.post();
         }
-        
-        //sleep(1);
-
-        close(sockfd); 
-    m.unlock();
 
 }
 
 // Driver code 
-int main() { 
+int main(int argc, char* argv[]) { 
     int n = 0;
-    
-    for (int i = 0; i < 350; i++)
+
+    if(argc != 2) {
+		printf("Forma de uso: %s ip_servidor\n", argv[0]);
+		exit(0);
+	}
+
+    IP_ = argv[1];
+
+    while(1)
     {
+                            //Dibuja                            Borra
         std::thread th1(creaYEnviaCordenadas,n,0.0), th2(creaYEnviaCordenadas,n,1.0);
+        sem1.init(1);
+        sem2.init(0);
+        
         th1.join();
         th2.join();
         //Vamos a ir aumentando n
-        n = i;
+        n++;
     }
 
     return 0; 
