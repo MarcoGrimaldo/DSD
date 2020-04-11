@@ -128,11 +128,18 @@ public class Servidor extends JFrame {
         frame.getVentana().pintar();
         frame.getVentana().revalidate();
 
+        System.out.print("Borra?");
         //Banderas
-        if(bandera == 1)
-          frame.borra = false;
+        if(bandera == 0)
+        {
+            System.out.println(" NO");
+            frame.borra = false;
+        }
         else
-          frame.borra = true;
+        {
+            System.out.println(" SI");
+            frame.borra = true;
+        }
 
         System.out.print("Datagrama recibido del host: " +
                            peticion.getAddress());
