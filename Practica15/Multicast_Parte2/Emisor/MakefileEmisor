@@ -1,0 +1,11 @@
+emisor: SocketDatagrama.o PaqueteDatagrama.o SocketMulticast.o emisor.cpp
+	g++ emisor.cpp SocketDatagrama.o PaqueteDatagrama.o SocketMulticast.o -o emisor
+SocketMulticast.o: SocketMulticast.cpp SocketMulticast.h
+	g++ SocketMulticast.cpp -c
+SocketDatagrama.o: SocketDatagrama.cpp SocketDatagrama.h
+	g++ SocketDatagrama.cpp -c
+PaqueteDatagrama.o: PaqueteDatagrama.cpp PaqueteDatagrama.h
+	g++ PaqueteDatagrama.cpp -c
+clean:
+	rm -rf *.o 
+	rm -rf emisor
